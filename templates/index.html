@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix User Graph</title>
+    <!-- Dodanie Bootstrapa -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Netflix User Graph</h1>
+        
+        <div class="d-flex justify-content-center gap-3 mb-4">
+            <button class="btn btn-primary" onclick="fetchUsers()">Pokaż Użytkowników</button>
+            <button class="btn btn-success" onclick="fetchMovies()">Pokaż Filmy</button>
+            <button class="btn btn-danger" onclick="fetchMostWatchedMovies()">Pokaż Najpopularniejsze Filmy</button>
+        </div>
+        <div class="input-group mb-3">
+            <h5>Pobierz filmy obejrzane przez użytkownika</h5>
+            <input type="text" id="name" class="form-control" placeholder="Imię" aria-label="Imię">
+            <input type="text" id="surname" class="form-control" placeholder="Nazwisko" aria-label="Nazwisko">
+            <button class="btn btn-primary" onclick="fetchWatchedMovies()">Pokaż Filmy</button>
+        </div>
+        <div class="input-group mb-3">
+            <h5>Pobierz filmy polubione przez użytkownika</h5>
+            <input type="text" id="liked-name" class="form-control" placeholder="Imię" aria-label="Imię">
+            <input type="text" id="liked-surname" class="form-control" placeholder="Nazwisko" aria-label="Nazwisko">
+            <button class="btn btn-success" onclick="fetchLikedMovies()">Pokaż Filmy</button>
+        </div> 
+        <div class="input-group mb-3">
+            <h5>Rekomendacje filmów dla użytkownika</h5>
+            <input type="text" id="recommend-name" class="form-control" placeholder="Imię" aria-label="Imię">
+            <input type="text" id="recommend-surname" class="form-control" placeholder="Nazwisko" aria-label="Nazwisko">
+            <button class="btn btn-info" onclick="fetchRecommendations()">Pokaż Rekomendacje</button>
+        </div>
+        <div class="input-group mb-3">
+            <h5>Znajdź użytkowników, którzy obejrzeli dany film</h5>
+            <input type="text" id="movie-title" class="form-control" placeholder="Tytuł filmu" aria-label="Tytuł filmu">
+            <button class="btn btn-warning" onclick="fetchUsersWhoWatched()">Pokaż Użytkowników</button>
+        </div>
+        <div id="output" class="card p-4 shadow-sm bg-white"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- Dodanie Bootstrapa JavaScript (opcjonalnie) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
